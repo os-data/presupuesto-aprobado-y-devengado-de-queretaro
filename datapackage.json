@@ -1,0 +1,1027 @@
+{
+  "@context": "http://schemas.frictionlessdata.io/fiscal-data-package.jsonld",
+  "author": "Transparencia Open Fiscal",
+  "bytes": 43055208,
+  "count_of_rows": 57917,
+  "countryCode": "MX",
+  "description": "Presupuesto Aprobado y Devengado para el estado de Querétaro en 2019.",
+  "fiscalPeriod": {
+    "end": "2019-09-30",
+    "start": "2019-01-01"
+  },
+  "hash": "791fac00dd71bf49b2c9ae8babe2cb51",
+  "model": {
+    "dimensions": {
+      "activity": {
+        "attributes": {
+          "desc_meta": {
+            "labelfor": "id_meta",
+            "source": "desc_meta",
+            "title": "Nombre de la Meta"
+          },
+          "desc_modalidad": {
+            "labelfor": "id_modalidad",
+            "source": "desc_modalidad",
+            "title": "Nombre de la Modalidad"
+          },
+          "desc_objetivo": {
+            "labelfor": "id_objetivo",
+            "source": "desc_objetivo",
+            "title": "Nombre del Objetivo"
+          },
+          "desc_pp": {
+            "labelfor": "id_pp",
+            "source": "desc_pp",
+            "title": "Nombre del Programa Presupuestario"
+          },
+          "id_meta": {
+            "source": "id_meta",
+            "title": "Meta"
+          },
+          "id_modalidad": {
+            "parent": "id_objetivo",
+            "source": "id_modalidad",
+            "title": "Modalidad"
+          },
+          "id_objetivo": {
+            "parent": "id_meta",
+            "source": "id_objetivo",
+            "title": "Objetivo"
+          },
+          "id_pp": {
+            "parent": "id_modalidad",
+            "source": "id_pp",
+            "title": "Programa Presupuestario"
+          }
+        },
+        "dimensionType": "activity",
+        "primaryKey": [
+          "id_meta",
+          "id_objetivo",
+          "id_modalidad",
+          "id_pp"
+        ]
+      },
+      "administrative-classification": {
+        "attributes": {
+          "desc_centro_de_costo": {
+            "labelfor": "id_centro_de_costo",
+            "source": "desc_centro_de_costo",
+            "title": "Nombre del Centro de Coto"
+          },
+          "id_centro_de_costo": {
+            "source": "id_centro_de_costo",
+            "title": "Centro de Costo"
+          }
+        },
+        "classificationType": "administrative",
+        "dimensionType": "classification",
+        "primaryKey": [
+          "id_centro_de_costo"
+        ]
+      },
+      "budget-line-id": {
+        "attributes": {
+          "clave_presupuestaria": {
+            "source": "clave_presupuestaria",
+            "title": "Clave presupuestaria"
+          }
+        },
+        "dimensionType": "fact",
+        "primaryKey": [
+          "clave_presupuestaria"
+        ]
+      },
+      "date": {
+        "attributes": {
+          "ciclo": {
+            "source": "ciclo",
+            "title": "Ciclo"
+          }
+        },
+        "dimensionType": "datetime",
+        "primaryKey": [
+          "ciclo"
+        ]
+      },
+      "economic-classification": {
+        "attributes": {
+          "desc_capitulo": {
+            "labelfor": "id_capitulo",
+            "source": "desc_capitulo",
+            "title": "Nombre del Capítulo"
+          },
+          "desc_concepto": {
+            "labelfor": "id_concepto",
+            "source": "desc_concepto",
+            "title": "Nombre del Concepto"
+          },
+          "desc_partida_especifica": {
+            "labelfor": "id_partida_especifica",
+            "source": "desc_partida_especifica",
+            "title": "Nombre de la Partida Específica"
+          },
+          "desc_partida_generica": {
+            "labelfor": "id_partida_generica",
+            "source": "desc_partida_generica",
+            "title": "Nombre de la Partida Genérica"
+          },
+          "desc_subpartida": {
+            "labelfor": "id_subpartida",
+            "source": "desc_subpartida",
+            "title": "Nombre de la Subpartida"
+          },
+          "id_capitulo": {
+            "source": "id_capitulo",
+            "title": "Capítulo"
+          },
+          "id_concepto": {
+            "parent": "id_capitulo",
+            "source": "id_concepto",
+            "title": "Concepto"
+          },
+          "id_partida_especifica": {
+            "parent": "id_partida_generica",
+            "source": "id_partida_especifica",
+            "title": "Partida Específica"
+          },
+          "id_partida_generica": {
+            "parent": "id_concepto",
+            "source": "id_partida_generica",
+            "title": "Partida Genérica"
+          },
+          "id_subpartida": {
+            "parent": "id_partida_especifica",
+            "source": "id_subpartida",
+            "title": "Subpartida"
+          }
+        },
+        "classificationType": "economic",
+        "dimensionType": "classification",
+        "primaryKey": [
+          "id_capitulo",
+          "id_concepto",
+          "id_partida_generica",
+          "id_partida_especifica",
+          "id_subpartida"
+        ]
+      },
+      "expenditure-type": {
+        "attributes": {
+          "desc_tipo_gasto": {
+            "labelfor": "id_tipo_gasto",
+            "source": "desc_tipo_gasto",
+            "title": "Nombre del Tipo de Gasto"
+          },
+          "id_tipo_gasto": {
+            "source": "id_tipo_gasto",
+            "title": "Tipo de Gasto"
+          }
+        },
+        "dimensionType": "other",
+        "primaryKey": [
+          "id_tipo_gasto"
+        ]
+      },
+      "fin-source": {
+        "attributes": {
+          "desc_ff": {
+            "labelfor": "id_ff",
+            "source": "desc_ff",
+            "title": "Nombre de la Fuente de Financiamiento"
+          },
+          "id_ff": {
+            "source": "id_ff",
+            "title": "Fuente de Financiamiento"
+          }
+        },
+        "dimensionType": "other",
+        "primaryKey": [
+          "id_ff"
+        ]
+      },
+      "functional-classification": {
+        "attributes": {
+          "desc_finalidad": {
+            "labelfor": "id_finalidad",
+            "source": "desc_finalidad",
+            "title": "Nombre de la Finalidad"
+          },
+          "desc_funcion": {
+            "labelfor": "id_funcion",
+            "source": "desc_funcion",
+            "title": "Nombre de la Función"
+          },
+          "desc_subfuncion": {
+            "labelfor": "id_subfuncion",
+            "source": "desc_subfuncion",
+            "title": "Nombre de la Subfunción"
+          },
+          "id_finalidad": {
+            "source": "id_finalidad",
+            "title": "Finalidad"
+          },
+          "id_funcion": {
+            "parent": "id_finalidad",
+            "source": "id_funcion",
+            "title": "Función"
+          },
+          "id_subfuncion": {
+            "parent": "id_funcion",
+            "source": "id_subfuncion",
+            "title": "Subfunción"
+          }
+        },
+        "classificationType": "functional",
+        "dimensionType": "classification",
+        "primaryKey": [
+          "id_finalidad",
+          "id_funcion",
+          "id_subfuncion"
+        ]
+      },
+      "value-kind": {
+        "attributes": {
+          "id_tipo_gasto_sa": {
+            "source": "id_tipo_gasto_sa",
+            "title": "Gasto Social o Administrativo"
+          },
+          "tipo_gasto_sa": {
+            "labelfor": "id_tipo_gasto_sa",
+            "source": "tipo_gasto_sa",
+            "title": "Nombre del Gasto Social o Administrativo"
+          }
+        },
+        "dimensionType": "other",
+        "primaryKey": [
+          "id_tipo_gasto_sa"
+        ]
+      }
+    },
+    "measures": {
+      "aprobado": {
+        "source": "aprobado",
+        "title": "Aprobado"
+      },
+      "devengado": {
+        "source": "devengado",
+        "title": "Devengado"
+      }
+    }
+  },
+  "name": "queretaro_2019",
+  "owner": "3811a6aa26687fb2925f4b9c45658316",
+  "profile": "data-package",
+  "profiles": {
+    "fiscal": "*",
+    "tabular": "*"
+  },
+  "promise": {},
+  "regionCode": "na",
+  "resources": [
+    {
+      "bytes": 32291397,
+      "count_of_rows": 43437,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp6g2gw13i/final/data/autorizado.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "a4cbd4494791bacfa7cc4ad05c2422ca",
+      "mediatype": "text/csv",
+      "name": "autorizado",
+      "path": "data/autorizado.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "columnType": "date:fiscal-year",
+            "conceptType": "date",
+            "format": "default",
+            "name": "ciclo",
+            "slug": "ciclo",
+            "title": "Ciclo",
+            "type": "integer"
+          },
+          {
+            "columnType": "budget-line-id",
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "clave_presupuestaria",
+            "slug": "clave_presupuestaria",
+            "title": "Clave presupuestaria",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level1:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_capitulo",
+            "slug": "id_capitulo",
+            "title": "Capítulo",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level1:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_capitulo",
+            "slug": "desc_capitulo",
+            "title": "Nombre del Capítulo",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level2:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_concepto",
+            "slug": "id_concepto",
+            "title": "Concepto",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level2:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_concepto",
+            "slug": "desc_concepto",
+            "title": "Nombre del Concepto",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level3:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_partida_generica",
+            "slug": "id_partida_generica",
+            "title": "Partida Genérica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level3:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_partida_generica",
+            "slug": "desc_partida_generica",
+            "title": "Nombre de la Partida Genérica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level4:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_partida_especifica",
+            "slug": "id_partida_especifica",
+            "title": "Partida Específica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level4:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_partida_especifica",
+            "slug": "desc_partida_especifica",
+            "title": "Nombre de la Partida Específica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level5:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_subpartida",
+            "slug": "id_subpartida",
+            "title": "Subpartida",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level5:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_subpartida",
+            "slug": "desc_subpartida",
+            "title": "Nombre de la Subpartida",
+            "type": "string"
+          },
+          {
+            "columnType": "administrative-classification:generic:code",
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "id_centro_de_costo",
+            "slug": "id_centro_de_costo",
+            "title": "Centro de Costo",
+            "type": "string"
+          },
+          {
+            "columnType": "administrative-classification:generic:label",
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "desc_centro_de_costo",
+            "slug": "desc_centro_de_costo",
+            "title": "Nombre del Centro de Coto",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:program:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_meta",
+            "slug": "id_meta",
+            "title": "Meta",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:program:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_meta",
+            "slug": "desc_meta",
+            "title": "Nombre de la Meta",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subprogram:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_objetivo",
+            "slug": "id_objetivo",
+            "title": "Objetivo",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subprogram:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_objetivo",
+            "slug": "desc_objetivo",
+            "title": "Nombre del Objetivo",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:project:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_modalidad",
+            "slug": "id_modalidad",
+            "title": "Modalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:project:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_modalidad",
+            "slug": "desc_modalidad",
+            "title": "Nombre de la Modalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subproject:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_pp",
+            "slug": "id_pp",
+            "title": "Programa Presupuestario",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subproject:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_pp",
+            "slug": "desc_pp",
+            "title": "Nombre del Programa Presupuestario",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level1:code",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "id_finalidad",
+            "slug": "id_finalidad",
+            "title": "Finalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level1:label",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "desc_finalidad",
+            "slug": "desc_finalidad",
+            "title": "Nombre de la Finalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level2:code",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "id_funcion",
+            "slug": "id_funcion",
+            "title": "Función",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level2:label",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "desc_funcion",
+            "slug": "desc_funcion",
+            "title": "Nombre de la Función",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level3:code",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "id_subfuncion",
+            "slug": "id_subfuncion",
+            "title": "Subfunción",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level3:label",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "desc_subfuncion",
+            "slug": "desc_subfuncion",
+            "title": "Nombre de la Subfunción",
+            "type": "string"
+          },
+          {
+            "columnType": "fin-source:generic:code",
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "id_ff",
+            "slug": "id_ff",
+            "title": "Fuente de Financiamiento",
+            "type": "string"
+          },
+          {
+            "columnType": "fin-source:generic:label",
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "desc_ff",
+            "slug": "desc_ff",
+            "title": "Nombre de la Fuente de Financiamiento",
+            "type": "string"
+          },
+          {
+            "columnType": "value-kind:code",
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "id_tipo_gasto_sa",
+            "slug": "id_tipo_gasto_sa",
+            "title": "Gasto Social o Administrativo",
+            "type": "string"
+          },
+          {
+            "columnType": "value-kind:label",
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "tipo_gasto_sa",
+            "slug": "tipo_gasto_sa",
+            "title": "Nombre del Gasto Social o Administrativo",
+            "type": "string"
+          },
+          {
+            "columnType": "expenditure-type:code",
+            "conceptType": "expenditure-type",
+            "format": "default",
+            "name": "id_tipo_gasto",
+            "slug": "id_tipo_gasto",
+            "title": "Tipo de Gasto",
+            "type": "string"
+          },
+          {
+            "columnType": "expenditure-type:label",
+            "conceptType": "expenditure-type",
+            "format": "default",
+            "name": "desc_tipo_gasto",
+            "slug": "desc_tipo_gasto",
+            "title": "Nombre del Tipo de Gasto",
+            "type": "string"
+          },
+          {
+            "columnType": "value",
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "aprobado",
+            "slug": "aprobado",
+            "title": "Aprobado",
+            "type": "number"
+          },
+          {
+            "columnType": "value",
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "devengado",
+            "slug": "devengado",
+            "title": "Devengado",
+            "type": "number"
+          }
+        ],
+        "primaryKey": [
+          "ciclo",
+          "clave_presupuestaria",
+          "id_capitulo",
+          "id_concepto",
+          "id_partida_generica",
+          "id_partida_especifica",
+          "id_subpartida",
+          "id_centro_de_costo",
+          "id_meta",
+          "id_objetivo",
+          "id_modalidad",
+          "id_pp",
+          "id_finalidad",
+          "id_funcion",
+          "id_subfuncion",
+          "id_ff",
+          "id_tipo_gasto_sa",
+          "id_tipo_gasto"
+        ]
+      }
+    },
+    {
+      "bytes": 21527598,
+      "count_of_rows": 28958,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp6g2gw13i/final/data/autorizado__2019.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "a4cbd4494791bacfa7cc4ad05c2422ca",
+      "mediatype": "text/csv",
+      "name": "autorizado__2019",
+      "path": "data/autorizado__2019.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "columnType": "date:fiscal-year",
+            "conceptType": "date",
+            "format": "default",
+            "name": "ciclo",
+            "slug": "ciclo",
+            "title": "Ciclo",
+            "type": "integer"
+          },
+          {
+            "columnType": "budget-line-id",
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "clave_presupuestaria",
+            "slug": "clave_presupuestaria",
+            "title": "Clave presupuestaria",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level1:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_capitulo",
+            "slug": "id_capitulo",
+            "title": "Capítulo",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level1:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_capitulo",
+            "slug": "desc_capitulo",
+            "title": "Nombre del Capítulo",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level2:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_concepto",
+            "slug": "id_concepto",
+            "title": "Concepto",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level2:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_concepto",
+            "slug": "desc_concepto",
+            "title": "Nombre del Concepto",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level3:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_partida_generica",
+            "slug": "id_partida_generica",
+            "title": "Partida Genérica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level3:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_partida_generica",
+            "slug": "desc_partida_generica",
+            "title": "Nombre de la Partida Genérica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level4:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_partida_especifica",
+            "slug": "id_partida_especifica",
+            "title": "Partida Específica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level4:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_partida_especifica",
+            "slug": "desc_partida_especifica",
+            "title": "Nombre de la Partida Específica",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level5:code",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "id_subpartida",
+            "slug": "id_subpartida",
+            "title": "Subpartida",
+            "type": "string"
+          },
+          {
+            "columnType": "economic-classification:generic:level5:label",
+            "conceptType": "economic-classification",
+            "format": "default",
+            "name": "desc_subpartida",
+            "slug": "desc_subpartida",
+            "title": "Nombre de la Subpartida",
+            "type": "string"
+          },
+          {
+            "columnType": "administrative-classification:generic:code",
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "id_centro_de_costo",
+            "slug": "id_centro_de_costo",
+            "title": "Centro de Costo",
+            "type": "string"
+          },
+          {
+            "columnType": "administrative-classification:generic:label",
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "desc_centro_de_costo",
+            "slug": "desc_centro_de_costo",
+            "title": "Nombre del Centro de Coto",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:program:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_meta",
+            "slug": "id_meta",
+            "title": "Meta",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:program:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_meta",
+            "slug": "desc_meta",
+            "title": "Nombre de la Meta",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subprogram:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_objetivo",
+            "slug": "id_objetivo",
+            "title": "Objetivo",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subprogram:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_objetivo",
+            "slug": "desc_objetivo",
+            "title": "Nombre del Objetivo",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:project:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_modalidad",
+            "slug": "id_modalidad",
+            "title": "Modalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:project:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_modalidad",
+            "slug": "desc_modalidad",
+            "title": "Nombre de la Modalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subproject:code",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "id_pp",
+            "slug": "id_pp",
+            "title": "Programa Presupuestario",
+            "type": "string"
+          },
+          {
+            "columnType": "activity:generic:subproject:label",
+            "conceptType": "activity",
+            "format": "default",
+            "name": "desc_pp",
+            "slug": "desc_pp",
+            "title": "Nombre del Programa Presupuestario",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level1:code",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "id_finalidad",
+            "slug": "id_finalidad",
+            "title": "Finalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level1:label",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "desc_finalidad",
+            "slug": "desc_finalidad",
+            "title": "Nombre de la Finalidad",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level2:code",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "id_funcion",
+            "slug": "id_funcion",
+            "title": "Función",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level2:label",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "desc_funcion",
+            "slug": "desc_funcion",
+            "title": "Nombre de la Función",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level3:code",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "id_subfuncion",
+            "slug": "id_subfuncion",
+            "title": "Subfunción",
+            "type": "string"
+          },
+          {
+            "columnType": "functional-classification:generic:level3:label",
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "desc_subfuncion",
+            "slug": "desc_subfuncion",
+            "title": "Nombre de la Subfunción",
+            "type": "string"
+          },
+          {
+            "columnType": "fin-source:generic:code",
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "id_ff",
+            "slug": "id_ff",
+            "title": "Fuente de Financiamiento",
+            "type": "string"
+          },
+          {
+            "columnType": "fin-source:generic:label",
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "desc_ff",
+            "slug": "desc_ff",
+            "title": "Nombre de la Fuente de Financiamiento",
+            "type": "string"
+          },
+          {
+            "columnType": "value-kind:code",
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "id_tipo_gasto_sa",
+            "slug": "id_tipo_gasto_sa",
+            "title": "Gasto Social o Administrativo",
+            "type": "string"
+          },
+          {
+            "columnType": "value-kind:label",
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "tipo_gasto_sa",
+            "slug": "tipo_gasto_sa",
+            "title": "Nombre del Gasto Social o Administrativo",
+            "type": "string"
+          },
+          {
+            "columnType": "expenditure-type:code",
+            "conceptType": "expenditure-type",
+            "format": "default",
+            "name": "id_tipo_gasto",
+            "slug": "id_tipo_gasto",
+            "title": "Tipo de Gasto",
+            "type": "string"
+          },
+          {
+            "columnType": "expenditure-type:label",
+            "conceptType": "expenditure-type",
+            "format": "default",
+            "name": "desc_tipo_gasto",
+            "slug": "desc_tipo_gasto",
+            "title": "Nombre del Tipo de Gasto",
+            "type": "string"
+          },
+          {
+            "columnType": "value",
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "aprobado",
+            "slug": "aprobado",
+            "title": "Aprobado",
+            "type": "number"
+          },
+          {
+            "columnType": "value",
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "devengado",
+            "slug": "devengado",
+            "title": "Devengado",
+            "type": "number"
+          }
+        ],
+        "primaryKey": [
+          "ciclo",
+          "clave_presupuestaria",
+          "id_capitulo",
+          "id_concepto",
+          "id_partida_generica",
+          "id_partida_especifica",
+          "id_subpartida",
+          "id_centro_de_costo",
+          "id_meta",
+          "id_objetivo",
+          "id_modalidad",
+          "id_pp",
+          "id_finalidad",
+          "id_funcion",
+          "id_subfuncion",
+          "id_ff",
+          "id_tipo_gasto_sa",
+          "id_tipo_gasto"
+        ]
+      }
+    }
+  ],
+  "revision": 0,
+  "title": "Presupuesto Aprobado y Devengado de Querétaro"
+}
