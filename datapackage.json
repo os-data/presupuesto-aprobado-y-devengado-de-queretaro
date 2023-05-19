@@ -295,7 +295,7 @@
       "hash": "a4cbd4494791bacfa7cc4ad05c2422ca",
       "mediatype": "text/csv",
       "name": "autorizado",
-      "path": "https://storage.openspending.org/autorizado.csv",
+      "path": "https://storage.openspending.org/presupuesto-aprobado-y-devengado-de-queretaro/autorizado.csv",
       "profile": "data-resource",
       "schema": {
         "fields": [
@@ -666,7 +666,7 @@
       "hash": "a4cbd4494791bacfa7cc4ad05c2422ca",
       "mediatype": "text/csv",
       "name": "autorizado__2019",
-      "path": "https://storage.openspending.org/autorizado.csv",
+      "path": "https://storage.openspending.org/presupuesto-aprobado-y-devengado-de-queretaro/autorizado.csv",
       "profile": "data-resource",
       "schema": {
         "fields": [
