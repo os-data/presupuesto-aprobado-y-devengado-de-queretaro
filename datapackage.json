@@ -295,7 +295,7 @@
       "hash": "a4cbd4494791bacfa7cc4ad05c2422ca",
       "mediatype": "text/csv",
       "name": "autorizado",
-      "path": "data/autorizado.csv",
+      "path": "https://storage.openspending.org/autorizado.csv",
       "profile": "data-resource",
       "schema": {
         "fields": [
@@ -666,7 +666,7 @@
       "hash": "a4cbd4494791bacfa7cc4ad05c2422ca",
       "mediatype": "text/csv",
       "name": "autorizado__2019",
-      "path": "data/autorizado__2019.csv",
+      "path": "https://storage.openspending.org/autorizado.csv",
       "profile": "data-resource",
       "schema": {
         "fields": [
